@@ -5,11 +5,11 @@ import Modal from './Modal';
 import { useState } from 'react';
 
 
-function PostList(){
+function PostList({isPosting, onStopPosting}){
     // The states:
     const [enteredBody, setEnteredBody] = useState('');
     const [enteredAuthor, setEnteredAuthor] = useState('');
-    const [ modalIsVisible, setModalIsVisible] = useState(true);
+
     
     // The function Handler:
     function bodyChangeHandler(event){
@@ -20,16 +20,14 @@ function PostList(){
         setEnteredAuthor(event.target.value);
     }
 
-    function hideModalHandler(event){
-        setModalIsVisible(false);
-    }
+
 
     // The variables:
     let modalContent;
 
-    if (modalIsVisible){
+    if (isPosting){
         modalContent = (
-            <Modal onClose={hideModalHandler}>
+            <Modal onClose={onStopPosting}>
                 <NewPost 
                     onBodyChange={bodyChangeHandler} 
                     onAuthorChange={authorChangeHandler} 
