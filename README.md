@@ -6,3 +6,6 @@
 4. Enter into Backend_node folder and digit:
 	* npm install
 	* npm start
+5. [ALTERNATIVELY] Enter into Backend_fastapi folder and digit:
+	* uvicorn main:app  --reload --host 0.0.0.0 --port 8080
+	* If you need to debug Python script, uncomment the last to row in the script
