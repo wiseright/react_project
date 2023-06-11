@@ -5,8 +5,9 @@ from pydantic import BaseModel
 import uvicorn
 from random import random
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
-FILENAME = './posts.json'
+FILENAME = './app/posts.json'
 
 class Posts(BaseModel):
     author: str
@@ -14,6 +15,7 @@ class Posts(BaseModel):
 
 # To get the content of post file
 def get_posts(filename):
+    print(os.listdir())
     with open(filename, 'r') as f:
         data = json.load(f)
     return data
