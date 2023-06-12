@@ -5,7 +5,7 @@ from pydantic import BaseModel
 import uvicorn
 from random import random
 from fastapi.middleware.cors import CORSMiddleware
-import os
+import os, time
 
 FILENAME = './app/posts.json'
 
@@ -44,7 +44,7 @@ app.add_middleware(
 @app.get("/posts")
 def read_root():
     data = get_posts(FILENAME)
-    return {"Posts": data['posts']}
+    return {"posts": data['posts']}
 
 
 @app.get("/posts/{post_id}")

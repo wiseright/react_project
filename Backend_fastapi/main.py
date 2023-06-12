@@ -42,7 +42,7 @@ app.add_middleware(
 @app.get("/posts")
 def read_root():
     data = get_posts(FILENAME)
-    return {"Posts": data['posts']}
+    return {"posts": data['posts']}
 
 
 @app.get("/posts/{post_id}")
